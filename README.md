@@ -1,7 +1,7 @@
 # Simple Handlebars loader plugin for RequireJS
 
 Simpler version of [SlexAxton/require-handlebars-plugin][] without any extra
-helpers and dependencies to configure (i18n, json2 etc.). Just simple
+helpers to configure (i18n). Just simple
 [Handlebars][] loader and precompiler for [RequireJS][].
 
 ## Usage

@@ -1,4 +1,3 @@
-
 # Simple Handlebars loader plugin for RequireJS
 
 Simpler version of [SlexAxton/require-handlebars-plugin][] without any extra
@@ -12,12 +11,11 @@ sure you have it and a Handlebars fork with an AMD definition in your setup.
 Handlebars fork can be grabbed from the
 [SlexAxton/require-handlebars-plugin][hbs-fork] repo.
 
-After that require-hbs can be used like the original Handlebars plugin:
+After that requirejs-hbs can be used like the original Handlebars plugin:
 
 ```javascript
-require(['hbs!App/Template/One'], function ( tmplOne ) {
-  // Use whatever you would to render the template function
-  document.body.innerHTML = tmplOne({adjective: "favorite"});
+require(['hbs!app/templates/hello'], function ( template ) {
+  document.body.innerHTML = template({name: "Epeli"});
 });
 ```
 

@@ -8,10 +8,10 @@ define(["handlebars"], function(Handlebars) {
 
       if (config.isBuild) {
         // Use node.js file system module to load the template.
-        // Sorry. No Rhino support.
+        // Sorry, no Rhino support.
         var fs = nodeRequire("fs");
-        var raw = fs.readFileSync( config.dirBaseUrl + "/" + name + ".hbs");
-        buildMap[name] = Handlebars.precompile(raw.toString());
+        var fsPath = config.dirBaseUrl + "/" + name + ".hbs";
+        buildMap[name] = fs.readFileSync(fsPath).toString();
         onload();
       }
       else {
@@ -27,8 +27,8 @@ define(["handlebars"], function(Handlebars) {
 
     // http://requirejs.org/docs/plugins.html#apiwrite
     write: function (pluginName, name, write) {
-      var compiled = buildMap[name];
-      // Write out precompile version of the template function as AMD
+      var compiled = Handlebars.precompile(buildMap[name]);
+      // Write out precompiled version of the template function as AMD
       // definition.
       write(
         "define('hbs!" + name + "', ['handlebars'], function(Handlebars){ \n" +

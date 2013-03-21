@@ -4,6 +4,9 @@ Simpler version of [SlexAxton/require-handlebars-plugin][] without any extra
 helpers to configure (i18n). Just simple
 [Handlebars][] loader and precompiler for [RequireJS][].
 
+This plugin does not swap out the Handlebars dependecy to runtime only
+version on builds. Yet. Pull requests welcome :)
+
 ## Usage
 
 The loader uses the AMD [text] loader plugin to handle all ajax stuff so make

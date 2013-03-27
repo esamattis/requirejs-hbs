@@ -1,11 +1,11 @@
-# Simple Handlebars loader plugin for RequireJS
+# Simple precompiling Handlebars plugin for RequireJS
 
 Simpler version of [SlexAxton/require-handlebars-plugin][] without any extra
-helpers to configure (i18n). Just simple
+helpers to configure (i18n). Just a simple
 [Handlebars][] loader and precompiler for [RequireJS][].
 
-This plugin does not swap out the Handlebars dependecy to runtime only
-version on builds. Yet. Pull requests welcome :)
+While this plugin precompiles the templates it does not swap out the Handlebars dependecy to runtime only
+version on builds automatically. Yet. Pull requests welcome :)
 
 ## Usage
 

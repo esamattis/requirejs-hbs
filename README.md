@@ -35,6 +35,7 @@ require.config({
   },    
   shim : { ... },
 });
+```
 
 Otherwise it defaults to '.hbs' template extension.
 

@@ -22,6 +22,24 @@ require(['hbs!app/templates/hello'], function ( template ) {
 });
 ```
 
+## Configure 
+
+Currently only overriding the template extension is configurable.
+In your RequireJS config file, you could optionally add a hbs entry:
+
+```javascript
+require.config({
+  paths: { ... },
+  hbs: {
+    templateExtension: ".html"
+  },    
+  shim : { ... },
+});
+```
+
+Otherwise it defaults to '.hbs' template extension.
+
+
 [Handlebars]: http://handlebarsjs.com/
 [RequireJS]: http://requirejs.org/
 [SlexAxton/require-handlebars-plugin]: https://github.com/SlexAxton/require-handlebars-plugin

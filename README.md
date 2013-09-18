@@ -37,7 +37,29 @@ require.config({
 });
 ```
 
-Otherwise it defaults to '.hbs' template extension.
+Otherwise the template extension defaults to '.hbs'.
+
+
+## Example
+
+First of all, serve the files of the `example` directory with a HTTP server. If
+you have python installed, you can run the `serve` script that will start a
+server on port 8000.
+
+The small example should run without any problem. You can see in the browser
+developer tools that all the files are loaded uncompressed.
+
+Next, use the r.js command to build the project. The
+file `index-build.html` will use the resulting build to run the example. Only
+the minified versions of `require.js` and `main.js` should load this time.
+
+```
+$ cd example
+$ ./serve
+$ firefox http://localhost:8000
+$ r.js -o app.build.js
+$ firefox http://localhost:8000/index-build.html
+```
 
 
 [Handlebars]: http://handlebarsjs.com/

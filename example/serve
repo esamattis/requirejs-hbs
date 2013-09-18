@@ -1,0 +1,8 @@
+#!/usr/bin/python
+
+try:
+    from http.server import test, SimpleHTTPRequestHandler
+except:
+    from SimpleHTTPServer import test, SimpleHTTPRequestHandler
+
+test(HandlerClass=SimpleHTTPRequestHandler)

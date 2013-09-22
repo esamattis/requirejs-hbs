@@ -15,7 +15,9 @@ define(["handlebars-compiler"], function (Handlebars) {
       var fs = nodeRequire("fs");
       var fsPath = config.dirBaseUrl + "/" + name + ext;
       buildMap[name] = fs.readFileSync(fsPath).toString();
-      onload();
+      parentRequire(["handlebars"], function () {
+        onload();
+      });
     },
 
     // http://requirejs.org/docs/plugins.html#apiwrite

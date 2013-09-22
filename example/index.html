@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>requirejs-hbs example</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+  <script>
+
+// This file is aimed to run the non-built version of the example.
+// Serve the directory with a HTTP server (with the serve script for example)
+// and load this file in a browser.
+var require = {
+
+  baseUrl: 'assets/',
+
+  paths: {
+    handlebars: 'lib/handlebars',
+    text: 'lib/text'
+  },
+
+  shim: {
+    handlebars: {
+      exports: 'Handlebars'
+    }
+  },
+
+  packages: [
+    {
+      name: 'hbs',
+      location: 'lib/hbs',
+      main: 'hbs'
+    }
+  ],
+
+  hbs: {
+    templateExtension: ".html"
+  }
+
+};
+
+  </script>
+  <script data-main="js/main" src="assets/lib/require.js"></script>
+</body>
+</html>

@@ -35,6 +35,7 @@ define(["handlebars"], function(Handlebars) {
       // definition.
       write(
         "define('hbs!" + name + "', ['handlebars'], function(Handlebars){ \n" +
+          "Handlebars = Handlebars || window.Handlebars;\n" +
           "return Handlebars.template(" + compiled.toString() + ");\n" +
         "});\n"
       );

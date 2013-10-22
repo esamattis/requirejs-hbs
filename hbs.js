@@ -1,4 +1,5 @@
 define(["handlebars"], function(Handlebars) {
+  Handlebars = Handlebars || this.Handlebars;
   var buildMap = {},
       templateExtension = ".hbs";
 
@@ -35,6 +36,7 @@ define(["handlebars"], function(Handlebars) {
       // definition.
       write(
         "define('hbs!" + name + "', ['handlebars'], function(Handlebars){ \n" +
+          "Handlebars = Handlebars || this.Handlebars;\n" +
           "return Handlebars.template(" + compiled.toString() + ");\n" +
         "});\n"
       );

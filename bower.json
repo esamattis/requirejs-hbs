@@ -1,0 +1,29 @@
+{
+  "name": "requirejs-hbs",
+  "version": "0.1.0",
+  "homepage": "https://github.com/epeli/requirejs-hbs",
+  "authors": [
+    "Esa-Matti Suuronen <esa-matti@suuronen.org>"
+  ],
+  "description": "Simple precompiling Handlebars plugin for RequireJS",
+  "main": "hbs.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "hbs",
+    "handlebars",
+    "requirejs",
+    "amd",
+    "template",
+    "js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,11 +1,8 @@
-define(["handlebars"], function (Handlebars) {
-  Handlebars = Handlebars || this.Handlebars;
+define(["handlebars-compiler"], function (Handlebars) {
   var buildMap = {},
       templateExtension = ".hbs";
 
   return {
-
-    pluginBuilder: "./hbs-builder",
 
     // http://requirejs.org/docs/plugins.html#apiload
     load: function (name, parentRequire, onload, config) {
@@ -13,22 +10,14 @@ define(["handlebars"], function (Handlebars) {
       // Get the template extension.
       var ext = (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension);
 
-      if (config.isBuild) {
-        // Use node.js file system module to load the template.
-        // Sorry, no Rhino support.
-        var fs = nodeRequire("fs");
-        var fsPath = parentRequire.toUrl(name + ext);
-        buildMap[name] = fs.readFileSync(fsPath).toString();
+      // Use node.js file system module to load the template.
+      // Sorry, no Rhino support.
+      var fs = nodeRequire("fs");
+      var fsPath = config.dirBaseUrl + "/" + name + ext;
+      buildMap[name] = fs.readFileSync(fsPath).toString();
+      parentRequire(["handlebars"], function () {
         onload();
-      } else {
-        // In browsers use the text-plugin to the load template. This way we
-        // don't have to deal with ajax stuff
-        parentRequire(["text!" + name + ext], function (raw) {
-          // Just return the compiled template
-          onload(Handlebars.compile(raw));
-        });
-      }
-
+      });
     },
 
     // http://requirejs.org/docs/plugins.html#apiwrite
@@ -38,7 +27,6 @@ define(["handlebars"], function (Handlebars) {
       // definition.
       write(
         "define('hbs!" + name + "', ['handlebars'], function(Handlebars){ \n" +
-          "Handlebars = Handlebars || this.Handlebars;\n" +
           "return Handlebars.template(" + compiled.toString() + ");\n" +
         "});\n"
       );

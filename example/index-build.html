@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>requirejs-hbs build example</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+  <script>
+
+// This file is aimed to run the built version of the example, either the full
+// or the runtime only one.
+// Please run either  r.js -o app.build.js  or  r.js -o app.build.runtime.js
+// to build the project, serve the directory with a HTTP server (with the serve
+// script for example) and load this file in a browser.
+var require = {
+
+  baseUrl: 'assets-build/',
+
+  paths: {
+    // As Handlebars is inlined in the built file and shimed below, we won't
+    // require the file directly, ever. So we don't have to put this path here.
+    // handlebars: 'lib/handlebars',
+    text: 'lib/text'
+  },
+
+  shim: {
+    handlebars: {
+      exports: 'Handlebars'
+    }
+  },
+
+  packages: [
+    {
+      name: 'hbs',
+      location: 'lib/hbs',
+      main: 'hbs'
+    }
+  ],
+
+  hbs: {
+    templateExtension: ".html"
+  }
+
+};
+
+  </script>
+  <script data-main="js/main" src="assets-build/lib/require.js"></script>
+</body>
+</html>

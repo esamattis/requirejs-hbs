@@ -6,7 +6,7 @@
     "Esa-Matti Suuronen <esa-matti@suuronen.org>"
   ],
   "description": "Simple precompiling Handlebars plugin for RequireJS",
-  "main": "hbs.js",
+  "main": ["hbs.js", "hbs-builder.js"],
   "moduleType": [
     "amd"
   ],

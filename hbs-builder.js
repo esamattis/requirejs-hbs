@@ -13,7 +13,7 @@ define(["handlebars-compiler"], function (Handlebars) {
       // Use node.js file system module to load the template.
       // Sorry, no Rhino support.
       var fs = nodeRequire("fs");
-      var fsPath = config.dirBaseUrl + "/" + name + ext;
+      var fsPath = parentRequire.toUrl(name + ext);
       buildMap[name] = fs.readFileSync(fsPath).toString();
       parentRequire(["handlebars"], function () {
         onload();
@@ -27,6 +27,7 @@ define(["handlebars-compiler"], function (Handlebars) {
       // definition.
       write(
         "define('hbs!" + name + "', ['handlebars'], function(Handlebars){ \n" +
+          "Handlebars = Handlebars || this.Handlebars;\n" +
           "return Handlebars.template(" + compiled.toString() + ");\n" +
         "});\n"
       );

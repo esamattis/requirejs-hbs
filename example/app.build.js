@@ -2,44 +2,24 @@
 ({
   baseUrl: "assets",
 
+  // Include the main config file
+  mainConfigFile: "assets/main.config.js",
+
   paths: {
-    // The handlebars library we include is the full one
-    "handlebars": "lib/handlebars",
-
-    text: "lib/text"
+    // Set here the path to either the full handlebars library if you want to
+    // be able to compile templates on the client, or the runtime only.
+    handlebars: "lib/handlebars-runtime"
   },
-
-  // Alias handlebars-compiler to the handlebars library
-  map: {
-    "*": {
-      "handlebars-compiler": "handlebars"
-    }
-  },
-
-  hbs: {
-    templateExtension: ".html"
-  },
-
-  shim: {
-    handlebars: {
-      exports: "Handlebars"
-    }
-  },
-
-  packages: [
-    // Include hbs as a package, so it will find hbs-builder when needed
-    {
-      name: "hbs",
-      location: "lib/hbs",
-      main: "hbs"
-    }
-  ],
 
   name: "js/main",
 
-  // We don't need handlebars-compiler in the final module (we already have
-  // handlebars). Exclude it from any module you define.
-  excludeShallow: ["handlebars-compiler"],
+  // Include the require library and the main config in the build so we have
+  // only a single file to load. You also could use almond
+  // (https://github.com/jrburke/almond) here.
+  deps: ["lib/require", "main.config"],
+
+  // Run the module js/main as soon as it is ready.
+  insertRequire: ["js/main"],
 
   dir: "assets-build"
 })

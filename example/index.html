@@ -5,41 +5,26 @@
     <meta charset="utf-8" />
 </head>
 <body>
+  <!--
+  Two ways to load your project.
+  In development mode, you will want to load the original source files. Include
+  those lines to load the require.js library and the require.js configuration,
+  then the main module:
+  -->
+
+  <script src="assets/lib/require.js"></script>
+  <script src="assets/main.config.js"></script>
   <script>
-
-// This file is aimed to run the non-built version of the example.
-// Serve the directory with a HTTP server (with the serve script for example)
-// and load this file in a browser.
-var require = {
-
-  baseUrl: 'assets/',
-
-  paths: {
-    handlebars: 'lib/handlebars',
-    text: 'lib/text'
-  },
-
-  shim: {
-    handlebars: {
-      exports: 'Handlebars'
-    }
-  },
-
-  packages: [
-    {
-      name: 'hbs',
-      location: 'lib/hbs',
-      main: 'hbs'
-    }
-  ],
-
-  hbs: {
-    templateExtension: ".html"
-  }
-
-};
-
+    require(["js/main"]);
   </script>
-  <script data-main="js/main" src="assets/lib/require.js"></script>
+
+  <!--
+  In production, you will want to load all of the above (including all main
+  module dependencies and precompiled templates). First run
+  r.js -o app.build.js
+  to build the project, then include this line:
+
+  <script src="assets-build/js/main.js"></script>
+  -->
 </body>
 </html>

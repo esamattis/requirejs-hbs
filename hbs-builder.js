@@ -1,19 +1,37 @@
-define(["handlebars-compiler"], function (Handlebars) {
-  var buildMap = {},
+define(function () {
+  var Handlebars,
+      buildMap = {},
       templateExtension = ".hbs";
+
+  var fs = nodeRequire("fs");
+  var vm = nodeRequire("vm");
 
   return {
 
     // http://requirejs.org/docs/plugins.html#apiload
     load: function (name, parentRequire, onload, config) {
 
+      // Load the Handlebars library using the path provided by the configuration.
+      if (!Handlebars) {
+        var handlebarsPath = parentRequire.toUrl(config.hbs.compilerPath || "handlebars");
+
+        // Add the extension if not present.
+        if (handlebarsPath.indexOf(".js", handlebarsPath.length - 3) < 0) {
+          handlebarsPath += ".js";
+        }
+
+        var context = {};
+        vm.runInNewContext(fs.readFileSync(handlebarsPath), context, handlebarsPath);
+        Handlebars = context.Handlebars;
+      }
+
       // Get the template extension.
       var ext = (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension);
 
       // Use node.js file system module to load the template.
       // Sorry, no Rhino support.
-      var fs = nodeRequire("fs");
       var fsPath = parentRequire.toUrl(name + ext);
+
       buildMap[name] = fs.readFileSync(fsPath).toString();
       parentRequire(["handlebars"], function () {
         onload();

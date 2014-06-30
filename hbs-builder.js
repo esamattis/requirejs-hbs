@@ -1,6 +1,5 @@
-define(function () {
-  var Handlebars,
-      buildMap = {},
+define(["handlebars-compiler"], function (Handlebars) {
+  var buildMap = {},
       templateExtension = ".hbs";
 
   var fs = nodeRequire("fs");

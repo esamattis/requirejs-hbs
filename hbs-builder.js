@@ -13,7 +13,7 @@ define(function () {
 
       // Load the Handlebars library using the path provided by the configuration.
       if (!Handlebars) {
-        var handlebarsPath = parentRequire.toUrl(config.hbs.compilerPath || "handlebars");
+        var handlebarsPath = parentRequire.toUrl((config.hbs && config.hbs.compilerPath) || "handlebars");
 
         // Add the extension if not present.
         if (handlebarsPath.indexOf(".js", handlebarsPath.length - 3) < 0) {

@@ -8,7 +8,7 @@
   paths: {
     // Set here the path to either the full handlebars library if you want to
     // be able to compile templates on the client, or the runtime only.
-    handlebars: "lib/handlebars-runtime"
+    handlebars: "lib/handlebars"
   },
 
   name: "js/main",
@@ -22,4 +22,4 @@
   insertRequire: ["js/main"],
 
   dir: "assets-build"
-})
+});

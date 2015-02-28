@@ -19,7 +19,8 @@ require.config({
 
   paths: {
     handlebars: 'path/to/handlebars',
-    text: 'path/to/text'
+    text: 'path/to/text',
+    hbs: 'path/to/requirejs-hbs'
   },
 
   shim: {
@@ -27,14 +28,6 @@ require.config({
       exports: 'Handlebars'
     }
   },
-
-  packages: [
-    {
-      name: 'hbs',
-      location: 'path/to/hbs/folder',
-      main: 'hbs'
-    }
-  ]
 });
 ```
 
@@ -57,7 +50,7 @@ require.config({
 
   hbs: {
     templateExtension: ".html",
-    compilerPath: "path/to/handlebars/full"
+    compilerPath: "path/to/handlebars"
   },
 
   shim : { ... },

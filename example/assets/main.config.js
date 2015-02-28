@@ -6,6 +6,7 @@ require.config({
   paths: {
     handlebars: "lib/handlebars",
     text: "lib/text",
+    hbs: "lib/hbs",
     "foo/bar": "boz"
   },
 
@@ -15,16 +16,8 @@ require.config({
     }
   },
 
-  packages: [{
-    // Include hbs as a package, so it will find hbs-builder when needed
-    name: "hbs",
-    location: "lib/hbs",
-    main: "hbs"
-  }],
-
   hbs: {
-    templateExtension: ".html",
-    compilerPath: "lib/handlebars"
+    templateExtension: ".html"
   }
 
 });

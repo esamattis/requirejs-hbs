@@ -1,0 +1,40 @@
+{
+  "name": "requirejs-hbs",
+  "version": "0.1.1",
+  "description": "Simple precompiling Handlebars plugin for RequireJS",
+  "main": ["hbs.js", "hbs-builder.js"],
+  "directories": {
+    "example": "example"
+  },
+  "moduleType": [
+    "amd"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoannmoinet/requirejs-hbs.git"
+  },
+  "keywords": [
+    "hbs",
+    "handlebars",
+    "requirejs",
+    "amd",
+    "template",
+    "js"
+  ],
+  "author": [
+    "Esa-Matti Suuronen <esa-matti@suuronen.org>",
+    "Yoann Moinet <yo@nnmoi.net> (http://yoannmoi.net/)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "bugs": {
+    "url": "https://github.com/yoannmoinet/requirejs-hbs/issues"
+  },
+  "homepage": "https://github.com/yoannmoinet/requirejs-hbs#readme"
+}

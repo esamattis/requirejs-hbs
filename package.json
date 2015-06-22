@@ -2,7 +2,7 @@
   "name": "requirejs-hbs",
   "version": "0.1.1",
   "description": "Simple precompiling Handlebars plugin for RequireJS",
-  "main": ["hbs.js", "hbs-builder.js"],
+  "main": "hbs.js",
   "directories": {
     "example": "example"
   },
@@ -22,8 +22,7 @@
     "js"
   ],
   "author": [
-    "Esa-Matti Suuronen <esa-matti@suuronen.org>",
-    "Yoann Moinet <yo@nnmoi.net> (http://yoannmoi.net/)"
+    "Esa-Matti Suuronen <esa-matti@suuronen.org>"
   ],
   "license": "MIT",
   "ignore": [

@@ -56,6 +56,7 @@ require.config({
   paths: { ... },
 
   hbs: {
+    base: "path/to/templates",
     templateExtension: ".html",
     compilerPath: "path/to/handlebars/full"
   },

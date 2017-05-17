@@ -13,8 +13,8 @@ define(["handlebars"], function (Handlebars) {
       var ext = (config.hbs && config.hbs.templateExtension ? config.hbs.templateExtension : templateExtension);
 
       // Get the base path.
-      var base = (config.hbs && config.hbs.base ? config.hbs.base : '');
-      var path = base + '/' + name;
+      var base = (config.hbs && config.hbs.base ? config.hbs.base : null);
+      var path = base ? base + '/' + name : name;
 
       // In browsers use the text-plugin to the load template. This way we
       // don't have to deal with ajax stuff
